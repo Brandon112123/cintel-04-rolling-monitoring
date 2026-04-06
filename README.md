@@ -15,7 +15,7 @@ understanding the logic,
 and pushing work to a shared repository.
 Each project follows the structure of professional Python projects.
 We learn by doing.
-
+<!--  -->
 ## This Project
 
 This project introduces **rolling monitoring**.
