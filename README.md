@@ -113,6 +113,7 @@ git add -A
 uvx pre-commit run --all-files
 
 uv run python -m cintel.rolling_monitor_case
+uv run python -m cintel.rolling_monitor_brandon
 
 uv run ruff format .
 uv run ruff check . --fix
