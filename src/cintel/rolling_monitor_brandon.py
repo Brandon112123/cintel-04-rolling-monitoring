@@ -30,12 +30,12 @@ Questions to Consider
 
 Paths (relative to repo root)
 
-    INPUT FILE: data/system_metrics_timeseries_case.csv
-    OUTPUT FILE: artifacts/rolling_metrics_case.csv
+    INPUT FILE: data/system_metrics_timeseries_brandon.csv
+    OUTPUT FILE: artifacts/rolling_metrics_brandon.csv
 
 Terminal command to run this file from the root project folder
 
-    uv run python -m cintel.rolling_monitor_case
+    uv run python -m cintel.rolling_monitor_brandon
 
 OBS:
   Don't edit this file - it should remain a working example.
@@ -109,7 +109,7 @@ def main() -> None:
     # A rolling window computes statistics over the most recent
     # N observations. The window "moves" forward one row at a time.
 
-    # Example: if WINDOW_SIZE = 3
+    # Example: if WINDOW_SIZE = 5
     # row 1 → mean of rows [1]
     # row 2 → mean of rows [1,2]
     # row 3 → mean of rows [1,2,3]
