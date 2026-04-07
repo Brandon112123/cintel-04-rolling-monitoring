@@ -16,6 +16,7 @@ and pushing work to a shared repository.
 Each project follows the structure of professional Python projects.
 We learn by doing.
 <!--  -->
+
 ## This Project
 
 This project introduces **rolling monitoring**.
@@ -23,12 +24,14 @@ This project introduces **rolling monitoring**.
 The goal is to copy this repository,
 set up your environment,
 run the example analysis,
-and explore how system metrics change over time.
+and explore how time-series data changes over time.
 
 You will run the example pipeline, read the code,
 and make small modifications to understand
 how rolling windows help smooth short-term variation and
 reveal trends in time-series data.
+
+This project also includes a custom pipeline that applies the same rolling monitoring technique to a weather dataset.
 
 ## Data
 
@@ -36,8 +39,13 @@ The example pipeline reads time-series system metrics from:
 
 `data/system_metrics_timeseries_case.csv`
 
-Each row represents one observation at a specific timestamp.
-The pipeline computes rolling averages for requests, errors, and latency, then saves the monitoring results as an artifact.
+The custom pipeline reads weather time-series data from:
+
+`data/daily_max_temperatures.csv`
+
+Each row represents one observation at a specific point in time.
+The example pipeline computes rolling averages for requests, errors, and latency, then saves the monitoring results as an artifact.
+The custom pipeline computes a rolling average for temperature and saves both a CSV artifact and a chart artifact.
 
 ## Working Files
 
@@ -48,6 +56,17 @@ You'll work with just these areas:
 - **src/cintel/** - where the magic happens
 - **pyproject.toml** - update authorship & links
 - **zensical.toml** - update authorship & links
+
+## Custom Project Files
+
+The custom project is implemented in:
+
+`src/cintel/rolling_monitor_custom.py`
+
+It creates these artifacts:
+
+- `artifacts/rolling_weather_metrics.csv`
+- `artifacts/rolling_weather_metrics.png`
 
 ## Instructions
 
@@ -74,36 +93,13 @@ After completing Phase 1. **Start & Run**, you'll have your own GitHub project, 
 ========================
 Pipeline executed successfully!
 ========================
-```
 
-And a new file named `project.log` will appear in the project folder.
-
-## Command Reference
-
-The commands below are used in the workflow guide above.
-They are provided here for convenience.
-
-Follow the guide for the **full instructions**.
-
-<details>
-<summary>Show command reference</summary>
-
-### In a machine terminal (open in your `Repos` folder)
-
-After you get a copy of this repo in your own GitHub account,
-open a machine terminal in your `Repos` folder:
-
-```shell
 # Replace username with YOUR GitHub username.
 git clone https://github.com/Brandon112123/cintel-04-rolling-monitoring
 
 cd cintel-04-rolling-monitoring
 code .
-```
 
-### In a VS Code terminal
-
-```shell
 uv self update
 uv python pin 3.14
 uv sync --extra dev --extra docs --upgrade
@@ -114,6 +110,7 @@ uvx pre-commit run --all-files
 
 uv run python -m cintel.rolling_monitor_case
 uv run python -m cintel.rolling_monitor_brandon
+uv run python -m cintel.rolling_monitor_custom
 
 uv run ruff format .
 uv run ruff check . --fix
@@ -122,11 +119,3 @@ uv run zensical build
 git add -A
 git commit -m "update"
 git push -u origin main
-```
-
-</details>
-
-## Notes
-
-- Use the **UP ARROW** and **DOWN ARROW** in the terminal to scroll through past commands.
-- Use `CTRL+f` to find (and replace) text within a file.
